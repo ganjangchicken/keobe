@@ -1,0 +1,7 @@
+@import "reset.css";
+
+.test {
+    width: 600px;
+    height: 300px;
+    background-color: brown;
+}
