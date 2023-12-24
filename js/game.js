@@ -4,11 +4,15 @@ const keobe_body = document.querySelector(".body");
 const keobe_left = document.querySelector(".leftArm");
 const keobe_right = document.querySelector(".rightArm");
 const bulkun = document.querySelector(".bulkun");
+const cookie = document.querySelector(".cookie");
+const music = new Audio("/audio/브금v2.mp3");
+const MAX_HIT_COUNT = 69;
 let startTime = 0;
 let curTime = 0;
 let timer;
 let HasCookie = true;
-let pattern = 1;
+let hitCount = 0;
+let missCount = 0;
 
 const Animation = {
     "bulkun" : "/img/bulkun.GIF",
@@ -17,7 +21,9 @@ const Animation = {
     "head_eat" : "/img/head_eat.GIF",
     "head_itai" : "/img/head_itai.GIF",
     "leftArm" : "/img/leftArm.GIF",
-    "rightArm" : "/img/rightArm.GIF"
+    "rightArm" : "/img/rightArm.GIF",
+    "hit": "/img/cookie_suc.gif",
+    "miss": "/img/cookie_fail.gif"
 }
 
 Display.addEventListener('mousedown', (e) => {
@@ -26,49 +32,71 @@ Display.addEventListener('mousedown', (e) => {
     let hitSound = new Audio("/audio/hit.wav");
     hitSound.play();
 
-    curTime = new Date().getTime();
-    let hitTime = (curTime - startTime) % 316;
-    console.log(hitTime);
-
-    if((hitTime < 25 || hitTime > 290) && HasCookie) {
-        Animation["head_eat"];
-    }else if(1) {
-        Animation["head_itai"];
+    let hitTime1 = parseInt(music.currentTime * 1000000 - 5800000) % 634920;
+    let hitTime2 = parseInt(music.currentTime * 1000000 - 5800000) % 317460;
+    
+    console.log(`ht1: ${hitTime1 / 1000000} curtime : ${music.currentTime  * 1000000}, j: ${timer}`);
+    // 1.111111 >> 1111111
+    // 0.05     >> 0050000
+    if((hitTime2 < 180000 || hitTime2 > 242460) && 
+        (timer == 13 || timer == 29 || timer == 45 ||
+        timer == 61 || timer == 65 || timer == 69 ||
+        timer == 105 || timer == 109)) {
+        keobe_head.src = Animation["head_eat"];
+        cookie.src = Animation["hit"];
+        hitCount = hitCount + 1;
+    }
+    else if((hitTime2 < 75000 || hitTime2 > 242460) && timer % 2 == 1) {
+        keobe_head.src = Animation["head_eat"];
+        cookie.src = Animation["hit"];
+        hitCount = hitCount + 1;
+    }
+    else if((hitTime2 < 75000 || hitTime2 > 242460) &&
+             (timer == 10 || timer == 70 || timer == 78 || timer ==86 || timer == 94)) {
+        keobe_head.src = Animation["head_eat"];
+        cookie.src = Animation["hit"];
+        hitCount = hitCount + 1;
+    }
+    else if(true) {
+        keobe_head.src = Animation["head_itai"];
+        cookie.src = Animation["miss"];
+        missCount = missCount + 1;
     }
 
 });
 
 function GameStart() {
-    let music = new Audio("/audio/브금v2.mp3");
+    let timer1, timer2, timer3;
+    
     music.addEventListener("ended", (e) => {
-        clearInterval(timer1);
-        clearInterval(timer2);
+        
+        console.log(hitCount);
     })
     startTime = new Date().getTime();
     music.play();
-    let i = 0, j = 0;
-    setTimeout((e) => {
-        timer1 = setInterval((e) => {
-            
-
-            i = i + 1;
-        }, 316);
-    }, 5500);
+    let i = 0, j = 0, k = 0;
 
     setTimeout((e) => {
-        timer2 = setInterval((e) => {
+        timer3 = setInterval((e) => {
             
+            if(j >= 111){
+                clearInterval(timer3);
+            }
+
+            timer = j;
+
             if(j % 2 == 0){
                 bulkun.src = Animation["give1"];
                 
             }else {
                 bulkun.src = Animation["give2"];
-                
+                cookie.src = "/img/temp/쿠키.PNG";
             }
 
             j = j + 1;
         }, 316);
-    }, 5500 - 316 - 20);
-    
+    }, 5500 - 316 - 18);
 
 }
+//3 20 22 24 26 (* 4 이얼싼스)
+//4 8 12 16 17 18 19 27 28
