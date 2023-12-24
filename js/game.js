@@ -15,18 +15,6 @@ let HasCookie = true;
 let hitCount = 0;
 let missCount = 0;
 
-const Animation = {
-    "bulkun" : "/img/bulkun.gif",
-    "give1" : "/img/give1.gif",
-    "give2" : "/img/give2.gif",
-    "head_eat" : "/img/head_eat.gif",
-    "head_itai" : "/img/head_itai.gif",
-    "leftArm" : "/img/leftArm.gif",
-    "rightArm" : "/img/rightArm.gif",
-    "hit": "/img/cookie_suc.gif",
-    "miss": "/img/cookie_fail.gif"
-}
-
 Display.addEventListener('mousedown', (e) => {
 
     if(isStart){
