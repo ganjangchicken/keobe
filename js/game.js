@@ -5,7 +5,7 @@ const keobe_left = document.querySelector(".leftArm");
 const keobe_right = document.querySelector(".rightArm");
 const bulkun = document.querySelector(".bulkun");
 const cookie = document.querySelector(".cookie");
-const music = new Audio("/audio/bgm2.mp3");
+const music = new Audio("./audio/bgm2.mp3");
 const MAX_HIT_COUNT = 69;
 let isStart = false;
 let startTime = 0;
@@ -16,15 +16,15 @@ let hitCount = 0;
 let missCount = 0;
 
 const Animation = {
-    "bulkun" : "/img/bulkun.gif",
-    "give1" : "/img/give1.gif",
-    "give2" : "/img/give2.gif",
-    "head_eat" : "/img/head_eat.gif",
-    "head_itai" : "/img/head_itai.gif",
-    "leftArm" : "/img/leftArm.gif",
-    "rightArm" : "/img/rightArm.gif",
-    "hit": "/img/cookie_suc.gif",
-    "miss": "/img/cookie_fail.gif"
+    "bulkun" : "./img/bulkun.gif",
+    "give1" : "./img/give1.gif",
+    "give2" : "./img/give2.gif",
+    "head_eat" : "./img/head_eat.gif",
+    "head_itai" : "./img/head_itai.gif",
+    "leftArm" : "./img/leftArm.gif",
+    "rightArm" : "./img/rightArm.gif",
+    "hit": "./img/cookie_suc.gif",
+    "miss": "./img/cookie_fail.gif"
 }
 
 Display.addEventListener('mousedown', (e) => {
@@ -33,7 +33,7 @@ Display.addEventListener('mousedown', (e) => {
 
         keobe_left.src = Animation["leftArm"];
         keobe_right.src = Animation["rightArm"];
-        let hitSound = new Audio("/audio/hit.wav");
+        let hitSound = new Audio("./audio/hit.wav");
         hitSound.play();
 
         let hitTime1 = parseInt(music.currentTime * 1000000 - 5800000) % 634920;
@@ -68,15 +68,15 @@ Display.addEventListener('mousedown', (e) => {
         }
 
         if(hitCount == 15) {
-            keobe_body.src = "/img/temp/keobe_body02.png";
+            keobe_body.src = "./img/temp/keobe_body02.png";
         }else if(hitCount == 30){
-            keobe_body.src = "/img/temp/keobe_body03.png";
+            keobe_body.src = "./img/temp/keobe_body03.png";
         }else if(hitCount == 40){
-            keobe_body.src = "/img/temp/keobe_body04.png";
+            keobe_body.src = "./img/temp/keobe_body04.png";
         }else if(hitCount == 50){
-            keobe_body.src = "/img/temp/keobe_body05.png";
+            keobe_body.src = "./img/temp/keobe_body05.png";
         }else if(hitCount == 60){
-            keobe_body.src = "/img/temp/keobe_body06.png";
+            keobe_body.src = "./img/temp/keobe_body06.png";
         }
 
     }
@@ -97,7 +97,7 @@ function GameStart() {
         let result = document.querySelector(".result");
 
         setTimeout((e) => {
-            new Audio("/audio/result.mp3").play();
+            new Audio("./audio/result.mp3").play();
 
             ment1.innerText = `맛있게 먹은 개수: ${hitCount}개`;
             ment2.innerText = `틀린 개수: ${missCount}`;
@@ -108,16 +108,16 @@ function GameStart() {
         setTimeout((e) => {
             if(hitCount < 35) {
                 ment4.innerText = `좀 더 열심히!`;
-                result.src = "/img/temp/05hungry.png";
-                new Audio("/audio/tryAgain.mp3").play();
+                result.src = "./img/temp/05hungry.png";
+                new Audio("./audio/tryAgain.mp3").play();
             }else if( hitCount < 55) {
                 ment4.innerText = `어쨋든 합격!`;
-                result.src = "/img/temp/09needmore.png";
-                new Audio("/audio/ok.mp3").play();
+                result.src = "./img/temp/09needmore.png";
+                new Audio("./audio/ok.mp3").play();
             }else {
                 ment4.innerText = `참 잘했어요!`;
-                result.src = "/img/temp/02bangbang.png";
-                new Audio("/audio/supurb.mp3").play();
+                result.src = "./img/temp/02bangbang.png";
+                new Audio("./audio/supurb.mp3").play();
             }
         },3000);
         
@@ -141,7 +141,7 @@ function GameStart() {
                 
             }else {
                 bulkun.src = Animation["give2"];
-                cookie.src = "/img/temp/cookie.png";
+                cookie.src = "./img/temp/cookie.png";
             }
 
             j = j + 1;
