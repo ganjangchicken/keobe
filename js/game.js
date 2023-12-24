@@ -68,15 +68,15 @@ Display.addEventListener('mousedown', (e) => {
         }
 
         if(hitCount == 15) {
-            keobe_body.src = "/img/temp/keobe_body02.PNG";
+            keobe_body.src = "/img/temp/keobe_body02.png";
         }else if(hitCount == 30){
-            keobe_body.src = "/img/temp/keobe_body03.PNG";
+            keobe_body.src = "/img/temp/keobe_body03.png";
         }else if(hitCount == 40){
-            keobe_body.src = "/img/temp/keobe_body04.PNG";
+            keobe_body.src = "/img/temp/keobe_body04.png";
         }else if(hitCount == 50){
-            keobe_body.src = "/img/temp/keobe_body05.PNG";
+            keobe_body.src = "/img/temp/keobe_body05.png";
         }else if(hitCount == 60){
-            keobe_body.src = "/img/temp/keobe_body06.PNG";
+            keobe_body.src = "/img/temp/keobe_body06.png";
         }
 
     }
@@ -141,7 +141,7 @@ function GameStart() {
                 
             }else {
                 bulkun.src = Animation["give2"];
-                cookie.src = "/img/temp/cookie.PNG";
+                cookie.src = "/img/temp/cookie.png";
             }
 
             j = j + 1;
