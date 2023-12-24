@@ -5,7 +5,7 @@ const keobe_left = document.querySelector(".leftArm");
 const keobe_right = document.querySelector(".rightArm");
 const bulkun = document.querySelector(".bulkun");
 const cookie = document.querySelector(".cookie");
-const music = new Audio("/audio/브금v2.mp3");
+const music = new Audio("/audio/bgm2.mp3");
 const MAX_HIT_COUNT = 69;
 let isStart = false;
 let startTime = 0;
@@ -68,15 +68,15 @@ Display.addEventListener('mousedown', (e) => {
         }
 
         if(hitCount == 15) {
-            keobe_body.src = "/img/temp/케오베_몸02.PNG";
+            keobe_body.src = "/img/temp/keobe_body02.PNG";
         }else if(hitCount == 30){
-            keobe_body.src = "/img/temp/케오베_몸03.PNG";
+            keobe_body.src = "/img/temp/keobe_body03.PNG";
         }else if(hitCount == 40){
-            keobe_body.src = "/img/temp/케오베_몸04.PNG";
+            keobe_body.src = "/img/temp/keobe_body04.PNG";
         }else if(hitCount == 50){
-            keobe_body.src = "/img/temp/케오베_몸05.PNG";
+            keobe_body.src = "/img/temp/keobe_body05.PNG";
         }else if(hitCount == 60){
-            keobe_body.src = "/img/temp/케오베_몸06.PNG";
+            keobe_body.src = "/img/temp/keobe_body06.PNG";
         }
 
     }
@@ -100,7 +100,7 @@ function GameStart() {
             new Audio("/audio/result.mp3").play();
 
             ment1.innerText = `맛있게 먹은 개수: ${hitCount}개`;
-            ment2.innerText = `놓친 개수: ${missCount}`;
+            ment2.innerText = `틀린 개수: ${missCount}`;
         },1000);
         setTimeout((e) => {
             ment3.innerText = `결과: ${hitCount} / 69`;
@@ -108,15 +108,15 @@ function GameStart() {
         setTimeout((e) => {
             if(hitCount < 35) {
                 ment4.innerText = `좀 더 열심히!`;
-                result.src = "/img/temp/05배고픈케짱.png";
+                result.src = "/img/temp/05hungry.png";
                 new Audio("/audio/tryAgain.mp3").play();
             }else if( hitCount < 55) {
                 ment4.innerText = `어쨋든 합격!`;
-                result.src = "/img/temp/09더줘케짱.png";
+                result.src = "/img/temp/09needmore.png";
                 new Audio("/audio/ok.mp3").play();
             }else {
                 ment4.innerText = `참 잘했어요!`;
-                result.src = "/img/temp/02빵빵케짱.png";
+                result.src = "/img/temp/02bangbang.png";
                 new Audio("/audio/supurb.mp3").play();
             }
         },3000);
@@ -141,7 +141,7 @@ function GameStart() {
                 
             }else {
                 bulkun.src = Animation["give2"];
-                cookie.src = "/img/temp/쿠키.PNG";
+                cookie.src = "/img/temp/cookie.PNG";
             }
 
             j = j + 1;
