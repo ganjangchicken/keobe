@@ -20,6 +20,7 @@
     position: absolute;
     width: 600px;
     height: 450px;
+
 }
 
 .startBtn {
@@ -55,6 +56,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    opacity: 0;
 }
 .evaluation div {
     flex-direction: column;

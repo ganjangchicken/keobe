@@ -87,10 +87,40 @@ function GameStart() {
     
     music.addEventListener("ended", (e) => {
         
-        console.log(hitCount);
+        document.querySelector(".evaluation").style.zIndex = 10;
+        document.querySelector(".evaluation").style.opacity = 1;
+        isStart = false;
         let ment1 = document.querySelector(".ment1");
         let ment2 = document.querySelector(".ment2");
         let ment3 = document.querySelector(".ment3");
+        let ment4 = document.querySelector(".ment4");
+        let result = document.querySelector(".result");
+
+        setTimeout((e) => {
+            new Audio("/audio/result.mp3").play();
+
+            ment1.innerText = `맛있게 먹은 개수: ${hitCount}개`;
+            ment2.innerText = `놓친 개수: ${missCount}`;
+        },1000);
+        setTimeout((e) => {
+            ment3.innerText = `결과: ${hitCount} / 69`;
+        },2000);
+        setTimeout((e) => {
+            if(hitCount < 35) {
+                ment4.innerText = `좀 더 열심히!`;
+                result.src = "/img/temp/05배고픈케짱.png";
+                new Audio("/audio/tryAgain.mp3").play();
+            }else if( hitCount < 55) {
+                ment4.innerText = `어쨋든 합격!`;
+                result.src = "/img/temp/09더줘케짱.png";
+                new Audio("/audio/ok.mp3").play();
+            }else {
+                ment4.innerText = `참 잘했어요!`;
+                result.src = "/img/temp/02빵빵케짱.png";
+                new Audio("/audio/supurb.mp3").play();
+            }
+        },3000);
+        
 
     })
     startTime = new Date().getTime();
