@@ -1,3 +1,5 @@
+let isloaded = false;
+
 const Animation = {
     "bulkun" : "/img/bulkun.gif",
     "give1" : "/img/give1.gif",
@@ -9,17 +11,6 @@ const Animation = {
     "hit": "/img/cookie_suc.gif",
     "miss": "/img/cookie_fail.gif"
 }
-
-const audioList = [
-    new Audio("/audio/bgm2.mp3"),
-    new Audio("/audio/hit.wav"),
-    new Audio("/audio/miss.wav"),
-    new Audio("/audio/ok.mp3"),
-    new Audio("/audio/ready.mp3"),
-    new Audio("/audio/result.mp3"),
-    new Audio("/audio/supurb.mp3"),
-    new Audio("/audio/tryAgain.mp3")
-]
 
 const imgList = [
     new Image("/img/temp/02bangbang.png"),
@@ -51,3 +42,18 @@ const gifList = [
     new Image("/img/leftArm.png"),
     new Image("/img/rightArm.png")
 ]
+
+const audioList = [
+    new Audio("/audio/ready.mp3"),
+    new Audio("/audio/bgm2.mp3"),
+    new Audio("/audio/hit.wav"),
+    new Audio("/audio/miss.wav"),
+    new Audio("/audio/ok.mp3"),
+    new Audio("/audio/result.mp3"),
+    new Audio("/audio/supurb.mp3"),
+    new Audio("/audio/tryAgain.mp3")
+]
+
+audioList[0].onload = () => {
+    isloaded = true;
+}
