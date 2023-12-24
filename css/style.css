@@ -1,7 +1,20 @@
 @import "reset.css";
 
-.test {
+.gmaeDisplay {
     width: 600px;
-    height: 300px;
+    height: 450px;
     background-color: brown;
+
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.gmaeDisplay img {
+    position: absolute;
+    width: 600px;
+    height: 450px;
 }
